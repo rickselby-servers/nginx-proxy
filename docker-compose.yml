@@ -12,3 +12,7 @@ services:
       - nginx-html:/usr/share/nginx/html
     network_mode: bridge
 
+volumes:
+  nginx-certs:
+  nginx-html:
+  nginx-vhost:
