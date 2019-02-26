@@ -2,7 +2,7 @@ stages:
   - redeploy
   - join-networks
 
-.docker-template: &docker-template
+.docker-template:
   image:
     name: docker/compose:1.23.2
     entrypoint: ["/bin/sh", "-c"]
@@ -24,7 +24,7 @@ stages:
     - rm -rf $DOCKER_CERT_PATH
 
 redeploy:
-  <<: *docker-template
+  extends: .docker-template
   stage: redeploy
   script:
     - eval $COMPOSE_COMMAND pull
@@ -37,10 +37,19 @@ redeploy:
       - docker-compose.yml
 
 join-networks:
-  <<: *docker-template
+  extends: .docker-template
   stage: join-networks
+  before_script:
+    - mkdir $DOCKER_CERT_PATH
+    - export DOCKER_HOST=$REMOTE_DOCKER_HOST
+    - echo "$CA" > $DOCKER_CERT_PATH/ca.pem
+    - echo "$CLIENT_CERT" > $DOCKER_CERT_PATH/cert.pem
+    - echo "$CLIENT_KEY" > $DOCKER_CERT_PATH/key.pem
+    - echo "$CI_REGISTRY_PASSWORD" | docker login -u "$CI_REGISTRY_USER" "$CI_REGISTRY" --password-stdin
+    - export COMPOSE_COMMAND="docker-compose -p $STACK_NAME"
+    - apk add --no-cache bash
   script:
-    - ./networks.sh
+    - /bin/bash networks.sh
   only:
     - master
 
