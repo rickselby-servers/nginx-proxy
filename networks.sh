@@ -11,4 +11,5 @@ do
   docker network connect "${networks[$i]}" nginx-proxy
 done
 
+exit 0
 
