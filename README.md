@@ -1,6 +1,6 @@
 # nginx-proxy setup
 
-See https://gitlab.com/rickselby-linode-setup/main/wikis/home for initial details
+See https://gitlab.com/rickselby-linode-setup/nginx-proxy/wikis/home for initial setup documentation.
 
 ## networks.sh
 
