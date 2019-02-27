@@ -2,6 +2,7 @@
 
 declare -a networks=(
   "portainer"
+  "torrents"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
