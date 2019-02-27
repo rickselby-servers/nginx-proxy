@@ -10,7 +10,7 @@ redeploy:
   stage: redeploy
   script:
     - eval $COMPOSE_COMMAND pull
-    - eval $COMPOSE_COMMAND down
+    - eval $COMPOSE_COMMAND down --remove-orphans
     - eval $COMPOSE_COMMAND up -d
   only:
     refs:
