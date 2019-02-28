@@ -3,6 +3,7 @@
 declare -a networks=(
   "portainer"
   "torrents"
+  "stardew-helpers"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
