@@ -3,7 +3,11 @@ stages:
   - join-networks
 
 include:
-  - local: '.gitlab-ci-template.yml'
+  - project: 'rickselby-linode-setup/gitlab-ci-templates'
+    file: '/deploy-template.yml'
+
+variables:
+  COMPOSE_FILE_PATH: docker-compose.yml
 
 redeploy:
   extends: .docker-template
