@@ -6,6 +6,7 @@ declare -a networks=(
   "stardew-helpers"
   "minif1"
   "budget"
+  "jayforeman"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
