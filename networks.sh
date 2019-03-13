@@ -8,6 +8,7 @@ declare -a networks=(
   "budget"
   "jayforeman"
   "kevinlarkin"
+  "the-versions"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
