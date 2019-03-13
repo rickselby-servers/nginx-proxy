@@ -7,6 +7,7 @@ declare -a networks=(
   "minif1"
   "budget"
   "jayforeman"
+  "kevinlarkin"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
