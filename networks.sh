@@ -12,6 +12,7 @@ declare -a networks=(
   "dragons"
   "selbyfamily"
   "djomp"
+  "plex"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))

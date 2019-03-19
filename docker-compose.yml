@@ -6,8 +6,8 @@ services:
     image: jwilder/nginx-proxy
     restart: always
     ports:
-      - "8080:80"
-      - "127.0.0.1:4433:443"
+      - "80:80"
+      - "443:443"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
       - certs:/etc/nginx/certs:ro
