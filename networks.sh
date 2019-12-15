@@ -14,6 +14,8 @@ declare -a networks=(
   "djomp"
   "plex"
   "ciclosmajor"
+  "mysql"
+  "webtrees"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
