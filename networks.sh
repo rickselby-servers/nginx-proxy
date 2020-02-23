@@ -16,6 +16,7 @@ declare -a networks=(
   "ciclosmajor"
   "mysql"
   "webtrees"
+  "album-sorter"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
