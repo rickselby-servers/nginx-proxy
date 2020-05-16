@@ -17,6 +17,7 @@ declare -a networks=(
   "mysql"
   "webtrees"
   "album-sorter"
+  "sleese"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
