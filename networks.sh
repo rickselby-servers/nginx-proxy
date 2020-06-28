@@ -18,6 +18,7 @@ declare -a networks=(
   "webtrees"
   "album-sorter"
   "sleese"
+  "enduro"
 )
 
 for ((i=0; i < ${#networks[@]}; i++))
