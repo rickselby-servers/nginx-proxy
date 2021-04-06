@@ -3,7 +3,7 @@ version: '2.4'
 services:
   nginx-proxy:
     container_name: nginx-proxy
-    image: jwilder/nginx-proxy
+    build: nginx-proxy
     restart: always
     ports:
       - "80:80"
@@ -17,18 +17,20 @@ services:
       - vhost:/etc/nginx/vhost.d
     network_mode: bridge
 
-  letsencrypt:
-    container_name: nginx-proxy-le
-    image: jrcs/letsencrypt-nginx-proxy-companion
+  acme-companion:
+    container_name: nginx-proxy-acme-companion
+    build: acme-companion
     restart: always
     volumes_from:
       - nginx-proxy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - certs:/etc/nginx/certs:rw
+      - acme:/etc/acme.sh
     network_mode: bridge
 
 volumes:
+  acme:
   certs:
   conf:
   dhparam:
