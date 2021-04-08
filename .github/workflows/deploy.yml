@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy to remote server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: rickselby-web-server/actions/server-certificate@main
+        with:
+          CA: ${{ secrets.CA }}
+          CLIENT_CERT: ${{ secrets.CLIENT_CERT }}
+          CLIENT_KEY: ${{ secrets.CLIENT_KEY }}
+      - uses: rickselby-web-server/actions/docker-compose-deploy@main
+        with:
+          STACK_NAME: nginx-proxy
+        env:
+          DOCKER_HOST: ${{ secrets.REMOTE_DOCKER_HOST }}
+          DOCKER_TLS_VERIFY: 1
+          LETSENCRYPT_EMAIL: ${{ secrets.LETSENCRYPT_EMAIL }}
