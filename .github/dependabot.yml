@@ -1,6 +1,10 @@
 version: 2
 updates:
-  - package-ecosystem: "docker"
-    directory: "/"
+  - package-ecosystem: docker
+    directory: acme-companion
     schedule:
-      interval: "weekly"
+      interval: weekly
+  - package-ecosystem: docker
+    directory: nginx-proxy
+    schedule:
+      interval: weekly
