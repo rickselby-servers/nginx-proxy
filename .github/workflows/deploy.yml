@@ -9,7 +9,7 @@ jobs:
     name: Deploy to remote server
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: rickselby-web-server/actions/server-certificate@main
         with:
           CA: ${{ secrets.CA }}
