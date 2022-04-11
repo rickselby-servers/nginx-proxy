@@ -1,8 +1,14 @@
+name: Deploy
+
 on:
   push:
     branches:
       - main
   workflow_dispatch:
+
+concurrency:
+  group: deployment
+  cancel-in-progress: true
 
 jobs:
   deploy:
