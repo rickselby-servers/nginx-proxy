@@ -24,6 +24,7 @@ jobs:
       - uses: rickselby-web-server/actions/docker-compose-deploy@main
         with:
           STACK_NAME: nginx-proxy
+          KEEP_NETWORKS: nginx-proxy
         env:
           DOCKER_HOST: ${{ secrets.LINODE_HOST }}
           DOCKER_TLS_VERIFY: 1
