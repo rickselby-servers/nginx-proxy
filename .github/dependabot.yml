@@ -4,13 +4,22 @@ updates:
     directory: acme-companion
     schedule:
       interval: weekly
+      day: saturday
+      time: "08:00"
+      timezone: "Europe/London"
 
   - package-ecosystem: docker
     directory: nginx-proxy
     schedule:
       interval: weekly
+      day: saturday
+      time: "08:00"
+      timezone: "Europe/London"
 
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
+      day: saturday
+      time: "08:00"
+      timezone: "Europe/London"
