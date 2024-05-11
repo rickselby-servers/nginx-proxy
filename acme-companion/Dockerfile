@@ -1,2 +1,2 @@
 # Declared in a Dockerfile so dependabot can watch for updates
-FROM nginxproxy/acme-companion:2.2.10
+FROM nginxproxy/acme-companion:2.3.0
