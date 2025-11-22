@@ -15,7 +15,7 @@ jobs:
     name: Deploy to remote server
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: rickselby-web-server/actions/server-certificate@main
         with:
           CA: ${{ secrets.LINODE_CA }}
